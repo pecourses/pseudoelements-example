@@ -1,0 +1,89 @@
+p::first-letter {
+  font-size: 3em;
+  color: red;
+}
+
+p::selection {
+  background-color: brown;
+  color: burlywood;
+}
+
+p::selection::first-letter {
+  background-color: brown;
+  color: burlywood;
+}
+
+p::first-line {
+  background-color: aquamarine;
+}
+/* 
+li::before {
+  content: 'Следующий элемент:';
+}
+
+li:first-child::after {
+  content: '>>';
+  color: blue;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+li {
+  display: inline-block;
+  min-width: 100px;
+  width: 100%;
+  max-width: 130px;
+  background-color: cadetblue;
+  margin: 5px;
+  padding: 20px 20px;
+  color: white;
+  position: relative;
+}
+
+li::before,
+li::after {
+  position: absolute;
+  height: 4px;
+  left: 0;
+  width: 0;
+  content: '';
+}
+
+li::before {
+  background-image: linear-gradient(
+    to right,
+    #e3004f,
+    #f55228,
+    #f08a00,
+    #d7bd00,
+    #a8eb12
+  );
+  bottom: calc(100% + 2px);
+  transition: width 2s;
+}
+
+li::after {
+  background-image: linear-gradient(
+    to left,
+    #e3004f,
+    #f55228,
+    #f08a00,
+    #d7bd00,
+    #a8eb12
+  );
+  top: calc(100% + 2px);
+  transition: width linear 2s 0.5s;
+}
+
+li:hover::before,
+li:hover::after {
+  width: 100%;
+}
+
+/* li:hover {
+  color: #a8eb12;
+  padding: 20px 40px;
+  transition: color 2s;
+} */
